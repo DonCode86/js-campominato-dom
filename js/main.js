@@ -5,14 +5,11 @@ function getRndInteger(min, max) {
 //genero 16 numeri casuali tra 1 e 100 (non possono ripetersi gli stessi numeri)
 const bombs = [];
 let randomBombs;
-let j;
+// let j;
 while (bombs.length < 3) {
     let randomBombs = getRndInteger(1, 100)
     if (!bombs.includes(randomBombs)) {
         bombs.push(randomBombs)
-    }
-    for (let j = 0; j < bombs.length; j++) {
-        console.log("bombe j:", bombs[j])
     }
 }
 console.log("bombe generate dal pc, ", bombs)
@@ -26,8 +23,8 @@ while (userNumbers.length < 6) {
     if (!userNumbers.includes(userNum) && !isNaN(userNum) && userNum > 0) {
         userNumbers.push(userNum)
     }
-    for (let i = 1; i < userNumbers.length; i++) {
-        if (userNumbers[i] === bombs[j]) {
+    for (let i = 0; i < bombs.length; i++) {
+        if (userNum === bombs[i]) {
             validator = 1;
         }
     }
