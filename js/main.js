@@ -19,18 +19,17 @@ let userNum;
 let validator = false;
 while (userNumbers.length < 6) {
     userNum = Number(prompt("Inserisci un numero"))
-    if (!userNumbers.includes(userNum) && !isNaN(userNum) && userNum > 0) {
+
+    if (bombs.includes(userNum)) {
+        validator = true;
+    } else if (!userNumbers.includes(userNum) && !isNaN(userNum) && userNum > 0) {
         userNumbers.push(userNum)
-        for (let i = 0; i < bombs.length; i++) {
-            if (userNum === bombs[i]) {
-                validator = true;
-            }
-        }
     }
+
     console.log("i numeri che hai scelto sono: ", userNumbers)
     if (validator === true) {
         console.log("hai perso!")
-        console.log("Hai ottenuto un punteggio di: ", userNumbers)
+        console.log("Hai ottenuto un punteggio di: ", userNumbers.length)
         break
     } else {
         console.log("non hai preso bombe!")
